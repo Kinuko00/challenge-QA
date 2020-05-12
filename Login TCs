@@ -1,0 +1,107 @@
+public class TC_Login_001 {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Carolina Yang\\Desktop\\Selenium\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("http://drixit.com/login"); //go to the login page
+		Assert.assertEquals(driver.findElement(By.tagName("title")).getText(), "Login"); //making sure that I'm in the login page
+		
+		driver.findElement(By.id("input[id*='user']")).sendKeys("user@mail.com"); //fill user field
+		driver.findElement(By.id("input[id*='password']")).sendKeys("p@ssword"); //fill password field
+		driver.findElement(By.id("button[id*='ingresar']")).click(); //submit
+		
+		Assert.assertEquals(driver.findElement(By.tagName("title")).getText(), "Dashboard"); //Checking successfull login
+		
+		System.out.println("TC Pass");
+	}
+
+}
+
+
+
+public class TC_Login_002 {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Carolina Yang\\Desktop\\Selenium\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("http://drixit.com/login"); //go to the login page
+		Assert.assertEquals(driver.findElement(By.tagName("title")).getText(), "Login"); //making sure that I'm in the login page
+		
+		driver.findElement(By.id("input[id*='user']")).sendKeys("user@mail.com"); //fill user field
+		driver.findElement(By.id("input[id*='password']")).sendKeys("unknown"); //fill password field
+		driver.findElement(By.id("button[id*='ingresar']")).click(); //submit
+		
+		Assert.assertEquals(driver.findElement(By.id("p[class*='errorMsg']")).getText(), "Invalid email and/or password. Please try again."); 
+		//Showing Error Message
+		
+		System.out.println("TC Pass");
+	}
+
+}
+
+
+
+public class TC_Login_003 {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Carolina Yang\\Desktop\\Selenium\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("http://drixit.com/login"); //go to the login page
+		Assert.assertEquals(driver.findElement(By.tagName("title")).getText(), "Login"); //making sure that I'm in the login page
+		
+		driver.findElement(By.id("input[id*='user']")).sendKeys("unknown"); //fill user field
+		driver.findElement(By.id("input[id*='password']")).sendKeys("p@ssword"); //fill password field
+		driver.findElement(By.id("button[id*='ingresar']")).click(); //submit
+		
+		Assert.assertEquals(driver.findElement(By.id("p[class*='errorMsg']")).getText(), "Invalid email and/or password. Please try again."); 
+		//Showing Error Message
+		
+		System.out.println("TC Pass");
+	}
+
+}
+
+
+public class TC_Login_004 {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Carolina Yang\\Desktop\\Selenium\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("http://drixit.com/login"); //go to the login page
+		Assert.assertEquals(driver.findElement(By.tagName("title")).getText(), "Login"); //making sure that I'm in the login page
+		
+		driver.findElement(By.id("input[id*='user']")).sendKeys("unknown"); //fill user field
+		driver.findElement(By.id("input[id*='password']")).sendKeys("p@ssword"); //fill password field
+		driver.findElement(By.id("button[id*='ingresar']")).click(); //submit
+		
+		Assert.assertEquals(driver.findElement(By.id("p[class*='errorMsg']")).getText(), "Invalid email and/or password. Please try again."); 
+		//Showing Error Message
+		
+		System.out.println("TC Pass");
+	}
+
+}
+
+
+public class TC_ResetPass_001 {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Carolina Yang\\Desktop\\Selenium\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("http://drixit.com/login"); //go to the login page
+		Assert.assertEquals(driver.findElement(By.tagName("title")).getText(), "Login"); //Making sure that I'm in the login page
+		
+		driver.findElement(By.id("a[id*='reset']")).click(); //click the link "Olvidé mi contraseña"
+				
+		Assert.assertEquals(driver.findElement(By.tagName("title")).getText(), "Reset Password"); 
+		//Checking that the user is in the Reset Password Page
+		
+		System.out.println("TC Pass");
+	}
+
+}
